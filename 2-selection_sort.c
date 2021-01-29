@@ -22,17 +22,17 @@ void swap_elem(int *a, int *b)
  */
 void selection_sort(int *array, size_t size)
 {
-	unsigned int i, j, min;
+	unsigned int i, j, idx;
 
 	if (!array || size < 2)
 		return;
 	for (i = 0; i < size - 1; i++)
 	{
-		min = i;
+		idx = i;
 		for (j = i + 1; j < size; j++)
-			if (array[j] < array[min])
-				min = j;
-		swap_elem(&array[min], &array[i]);
+			if (array[j] < array[idx])
+				idx = j;
+		swap_elem(&array[idx], &array[i]);
 		print_array(array, size);
 	}
 }
