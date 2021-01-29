@@ -22,8 +22,7 @@ void swap_items(int *a, int *b)
  */
 void bubble_sort(int *array, size_t size)
 {
-	/*size_t iter;*/
-	/*int empt;*/
+
 	unsigned int i, iter;
 	bool swap;
 
@@ -41,7 +40,7 @@ void bubble_sort(int *array, size_t size)
 				print_array(array, size);
 			}
 		}
-		if(swap == false)
+		if (swap == false)
 			break;
 	}
 }
