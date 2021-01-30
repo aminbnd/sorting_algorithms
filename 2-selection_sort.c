@@ -27,18 +27,13 @@ void selection_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 	i = 0;
-	while (i < size - 1)
+	for (i = 0; i < size - 1; i++)
 	{
-		min = 1;
-		j = i + 1;
-		while (j < size)
-		{
+		min = i;
+		for (j = i + 1; j < size; j++)
 			if (array[j] < array[min])
 				min = j;
-			j++;
-		}
 		swap_elem(&array[min], &array[i]);
 		print_array(array, size);
-		i++;
 	}
 }
