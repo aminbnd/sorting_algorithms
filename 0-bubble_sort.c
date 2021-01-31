@@ -1,12 +1,11 @@
 #include "sort.h"
 
 /**
- * swap_items - Swap two items in an unsorted array
- * @a: integer, first item
- * @b: inetegr, secon item
- * Return: void
+ * swap - swap two integers
+ * @a: first integer
+ * @b: second integer
  */
-void swap_items(int *a, int *b)
+void swap(int *a, int *b)
 {
 	int empty;
 
@@ -16,31 +15,28 @@ void swap_items(int *a, int *b)
 }
 
 /**
- * bubble_sort - Sorts an array of integer in an ascending order
+ * bubble_sort - Sortes inetegers in an array
  * @array: array of integers
- * @size: the size of the array
+ * @size: size of the array
  */
+
 void bubble_sort(int *array, size_t size)
 {
+	unsigned int i, j;
 
-	unsigned int i, iter;
-	bool swap;
 
 	if (!array || size < 2)
 		return;
-	for (i = 0; size; i++)
+	for (i = 0; i < size; i++)
 	{
-		swap = false;
-		for (iter = 0; iter < size - 1; iter++)
+		for (j = 0; j < size - 1; j++)
 		{
-			if (array[iter + 1] < array[iter])
+			if (array[j] > array[j + 1])
 			{
-				swap_items(&array[iter], &array[iter + 1]);
-				swap = true;
+				swap(&array[j], &array[j + 1]);
 				print_array(array, size);
 			}
 		}
-		if (swap == false)
-			break;
 	}
 }
+
