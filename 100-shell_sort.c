@@ -6,19 +6,20 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	unsigned int i, j, gap;
+	unsigned int i, j;
+	unsigned int gap = 1;
 	int tmp;
 
 	if (!array || size < 2)
 		return;
 	while (gap < (size - 1) / 3)
 		gap = gap * 3 + 1;
-	for (gap = gap; gap > 0; gap = (gap - 1) / 3)
+	for (gap = gap; gap > 0; gap = gap / 3)
 	{
 		for (i = gap; i < size; i++)
 		{
 			tmp = array[i];
-			for (j = i; j >= gap && array[j - gap] > tmp; j -= gap)
+			for (j = i; j > gap - 1 && array[j - gap] >= tmp; j -= gap)
 				array[j] = array[j - gap];
 			array[j] = tmp;
 		}
