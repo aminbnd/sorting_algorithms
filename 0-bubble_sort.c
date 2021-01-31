@@ -1,6 +1,21 @@
 #include "sort.h"
 
 /**
+ * swap - swap two integers
+ * @a: first ineteger
+ * @b: second integer
+ */
+void swap(int *a, int *b)
+{
+	int empty;
+
+	empty = *a;
+	*a = *b;
+	*b = empty;
+}
+
+
+/**
  * bubble_sort - Sortes inetegers in an array
  * @array: array of integers
  * @size: size of the array
@@ -9,7 +24,6 @@
 void bubble_sort(int *array, size_t size)
 {
 	unsigned int i, j;
-	int empty;
 
 	if (!array || size < 2)
 		return;
@@ -19,9 +33,7 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[j] > array[j + 1])
 			{
-				empty = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = empty;
+				swap(&array[j], &array[j + 1]);
 				print_array(array, size);
 			}
 		}
